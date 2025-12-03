@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Educational Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Educational Blog</h1>
+        <p>Simple beginner-friendly blog</p>
+    </header>
+
+    <nav>
+        <a href="#tech">Technology</a>
+        <a href="#health">Health</a>
+        <a href="#finance">Finance</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- POST 1 -->
+        <section class="post" id="tech">
+            <h2>Why Learning Technology is Important</h2>
+            <p class="meta">Category: Technology • Tags: HTML, Coding</p>
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80" width="100%">
+            <p>Technology skills help you build websites, apps and prepare for the future.</p>
+        </section>
+
+        <!-- POST 2 -->
+        <section class="post" id="health">
+            <h2>Simple Habits for Good Health</h2>
+            <p class="meta">Category: Health • Tags: Wellness, Lifestyle</p>
+            <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?w=800&q=80" width="100%">
+            <p>Small good habits every day like walking and drinking water improve your lifestyle.</p>
+        </section>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li>Technology</li>
+                <li>Health</li>
+                <li>Finance</li>
+            </ul>
+
+            <h3>Tags</h3>
+            <p>#html #css #coding #wellness #money</p>
+        </aside>
+
+    </div>
+
+    <!-- COMMENT BOX -->
+    <section class="comments">
+        <h3>Leave a Comment</h3>
+        <input type="text" id="name" placeholder="Your name">
+        <textarea id="comment" placeholder="Your comment"></textarea>
+        <button onclick="addComment()">Post Comment</button>
+
+        <div id="comment-section"></div>
+    </section>
+
+    <footer>
+        <p>© 2025 Educational Blog</p>
+    </footer>
+
+    <script>
+        function addComment() {
+            let name = document.getElementById("name").value || "Anonymous";
+            let comment = document.getElementById("comment").value;
+
+            if (comment.trim() === "") {
+                alert("Please write something!");
+                return;
+            }
+
+            let box = document.getElementById("comment-section");
+            let newCmt = document.createElement("div");
+            newCmt.className = "cmt";
+            newCmt.innerHTML = "<b>" + name + ":</b><p>" + comment + "</p>";
+            box.prepend(newCmt);
+
+            document.getElementById("comment").value = "";
+        }
+    </script>
+
+</body>
+</html>
